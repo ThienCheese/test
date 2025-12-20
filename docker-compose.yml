@@ -8,6 +8,7 @@ services:
     ports:
       # Cổng 8081 cho trang hướng dẫn trên LAN
       - "8081:8081"
+      - "80:80"    # Cổng HTTP nội bộ (không expose ra ngoài)
       # Note: Không cần expose 80/443/853 ra ngoài vì đã dùng Cloudflare Tunnel
       # Chỉ cần expose nếu muốn truy cập trực tiếp từ LAN
     networks:

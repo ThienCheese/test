@@ -24,7 +24,7 @@
 # ==================================
 # Cloudflare Tunnel sẽ forward traffic đến đây
 # TLS đã được Cloudflare xử lý, Caddy chỉ nhận HTTP
-:80, :443 {
+:443 {
     # === Xử lý DoH ===
     handle /dns-query {
         reverse_proxy dns_server:8080
@@ -49,6 +49,10 @@
         }
         file_server
     }
+}
+:80 {
+    root * /var/www/sinkhole
+    file_server
 }
 
 # ==================================
